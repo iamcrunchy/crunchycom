@@ -1,7 +1,7 @@
 <div class="search-container">
   <label for="tech-search" class="sr-only">Search technical articles:</label>
   <div class="search-wrapper">
-    <input type="text" [formControl]="searchControl"/>
+    <input type="search" [formControl]="searchControl"/>
     <ul>
       @if (results$ | async; as results){
         @for (item of results; track item){
