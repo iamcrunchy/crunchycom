@@ -61,8 +61,9 @@ h1 {
 }
 
 .search-container {
-  max-width: 500px;
-  margin: 20px auto;
+  width: 320px;
+  max-width: 320px;
+  margin: 20px 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
