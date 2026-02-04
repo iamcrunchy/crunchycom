@@ -1,19 +1,19 @@
-using System.Net;
+using crunchycom.Data;
+using CrunchyCom.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 
-using CrunchyCom.Data;
-using Microsoft.AspNetCore.Mvc;
-
-namespace CrunchyCom.Backend;
+namespace crunchycom.Functions;
 
 public class GetPosts
 {
     private readonly ILogger _logger;
-    private readonly PostRepository _postRepository;
+    //private readonly PostRepository _postRepository;
+    private readonly IRepository _postRepository;
     
-    public GetPosts(ILogger<GetPosts> logger, PostRepository postRepository)
+    public GetPosts(ILogger<GetPosts> logger, IRepository postRepository)
     {
         _logger = logger;
         _postRepository = postRepository;
