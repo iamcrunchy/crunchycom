@@ -11,10 +11,17 @@ using Microsoft.Extensions.Azure;
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
     .ConfigureServices(services => {
-        
+        var connectionString = Environment.GetEnvironmentVariable("TableStorageConnectionString");
+
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            throw new Exception(
+                "missing environment variable 'TableStorageConnectionString'. " +
+                "Set it in local.settings.json, or in the run configuration environment variables.");
+        }
         // 1. Register the Azure Table Client
         services.AddAzureClients(builder => {
-            builder.AddTableServiceClient(Environment.GetEnvironmentVariable("TableStorageConnectionString"));
+            builder.AddTableServiceClient(connectionString);
         });
 
         // 2. Register your Repository (Scoped is best for data access)

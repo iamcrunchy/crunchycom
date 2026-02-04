@@ -4,6 +4,7 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 
 using CrunchyCom.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyCom.Backend;
 
@@ -19,7 +20,7 @@ public class GetPosts
     }
 
     [Function("GetPosts")]
-    public async Task<HttpResponseData> Run(
+    public async Task<IActionResult> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Posts")]
         HttpRequestData req)
     {
@@ -27,11 +28,11 @@ public class GetPosts
         
         var posts = await _postRepository.GetAllPostsAsync();
         
-        var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Headers.Add("Content-Type", "application/json");
-        await response.WriteAsJsonAsync(posts);
+        // var response = req.CreateResponse(HttpStatusCode.OK);
+        // response.Headers.Add("Content-Type", "application/json");
+        // await response.WriteAsJsonAsync(posts);
         
-        return response;
+        return new OkObjectResult(posts);
     }
     
 }
