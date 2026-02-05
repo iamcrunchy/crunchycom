@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration; // Needed for configuration access
 
 using CrunchyCom.Data;
+using crunchycom.Seed;
 using Microsoft.Extensions.Azure;
 
 var host = new HostBuilder()
@@ -29,5 +30,14 @@ var host = new HostBuilder()
         
     })
     .Build();
+
+// SEED DATA 
+var isDevelopment = Environment.GetEnvironmentVariable("AZURE_FUNCTIONS_ENVIRONMENT") == "Development";
+if (isDevelopment)
+{
+    Console.WriteLine("Development environment has been detected. Seeding local Azurite instance...");
+    TableSeeder.SeedLocalData().GetAwaiter().GetResult();
+    Console.WriteLine("Seeding  local Azurite instance finished.");
+}
 
 host.Run();
