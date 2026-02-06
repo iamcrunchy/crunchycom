@@ -60,10 +60,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "frontend:build:production"
+              "buildTarget": "wefit:build:production"
             },
             "development": {
-              "buildTarget": "frontend:build:development"
+              "buildTarget": "wefit:build:development"
             }
           },
           "defaultConfiguration": "development"
