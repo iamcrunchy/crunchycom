@@ -1,9 +1,11 @@
 export interface Post {
-  id?: string;
+  partitionKey?: string;
+  rowKey?: string;
   title: string;
   content: string;
-  publishedDate?: Date;
-  author?: string;
+  timestamp: string;
+  published?: Date;
+  author?: string | null;
 }
 
 
