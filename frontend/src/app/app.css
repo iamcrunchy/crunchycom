@@ -1,0 +1,29 @@
+.main-nav {
+  background-color: var(--primary-dark);
+  color: white;
+  padding: 1rem 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: var(--gnome-orange);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+}

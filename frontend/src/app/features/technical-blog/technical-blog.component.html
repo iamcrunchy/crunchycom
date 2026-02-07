@@ -1,13 +1,17 @@
 <div class="blog-container">
   <h1>Latest Posts</h1>
 
-  @for (post of posts; track post.rowKey) {
+
+<!--  <p>Debug length: {{ posts.length }}</p>-->
+<!--  <pre>Debug JSON: {{ posts | json }}</pre>-->
+
+  @for (post of posts; track post.rowKey ?? $index) {
     <div class="post-card">
       <h2>{{post.title}}</h2>
       <p>{{post.content}}</p>
       @if (post.published){
         <small>Posted on: {{ post.published | date }}</small>
-  }
+      }
       </div>
   } @empty {
     <div class="loading-state">
