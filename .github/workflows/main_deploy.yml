@@ -28,7 +28,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "/frontend"
-          api_location: "/backend" 
+          api_location: "backend/crunchycom/" 
           output_location: "dist/frontend/browser"
           ###### KEY ADDITIONS ######
           # dotnet_version: "8.0"
