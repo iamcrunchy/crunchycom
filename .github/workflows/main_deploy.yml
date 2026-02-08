@@ -31,8 +31,8 @@ jobs:
           api_location: "/backend" 
           output_location: "dist/frontend/browser"
           ###### KEY ADDITIONS ######
-          dotnet_version: "8.0"
-          skip_api_build: false
+          # dotnet_version: "8.0"
+          # skip_api_build: false
 
 #
 #      - name: Build And Deploy
